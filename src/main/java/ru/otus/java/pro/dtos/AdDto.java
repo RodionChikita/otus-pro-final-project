@@ -13,8 +13,8 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AdDto<T extends Category> {
-    private UUID id;
+public class AdDto {
+    private UUID adId;
     private String title;
     private Date postingDate;
     private String description;
@@ -23,6 +23,5 @@ public class AdDto<T extends Category> {
     private String city;
     private String fullAddress;
     private CategoryEnum categoryEnum;
-    private T category;
     private Long clientId;
 }

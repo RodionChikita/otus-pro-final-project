@@ -8,7 +8,7 @@ create table clients (
 );
 
 create table ads (
-    id bigserial primary key,
+    ad_id UUID primary key,
     title varchar(255),
     posting_date timestamp,
     description varchar(255),
@@ -22,13 +22,12 @@ create table ads (
 );
 
 create table real_estates (
-    id bigserial primary key,
+    ad_id UUID primary key,
     real_estate_type varchar(255),
     number_of_rooms smallint,
     floor smallint,
     square int,
-    ad_id bigint,
-    foreign key (ad_id) references ads (id)
+    foreign key (ad_id) references ads (ad_id)
 );
 
 create table reviews(
@@ -39,4 +38,22 @@ create table reviews(
     created_at timestamp,
     client_reviewed_id bigint,
     foreign key (client_reviewed_id) references clients (id)
+);
+
+create table chats(
+    id bigserial primary key,
+    client_customer_id bigint,
+    client_seller_id bigint,
+    ad_id UUID,
+    created_at timestamp,
+    foreign key (client_customer_id) references clients (id)
+    foreign key (client_seller_id) references clients (id)
+);
+
+create table messages(
+    id bigserial primary key,
+    client_id bigint,
+    message_text varchar(255),
+    created_at timestamp,
+    foreign key (client_id) references clients (id)
 );

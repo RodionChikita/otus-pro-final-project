@@ -14,13 +14,12 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateOrUpdateAdDtoRq<T extends Category> {
+public class CreateOrUpdateAdDtoRq{
     private String title;
     private String description;
     private Long price;
     private String city;
     private String fullAddress;
     private CategoryEnum categoryEnum;
-    private T category;
     private Long clientId;
 }

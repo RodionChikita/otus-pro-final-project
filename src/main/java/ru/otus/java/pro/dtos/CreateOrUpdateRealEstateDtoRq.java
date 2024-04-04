@@ -11,7 +11,7 @@ import ru.otus.java.pro.entities.RealEstateType;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateOrUpdateRealEstateDtoRq extends Category {
+public class CreateOrUpdateRealEstateDtoRq extends CreateOrUpdateAdDtoRq {
     private RealEstateType realEstateType;
     private byte numberOfRooms;
     private byte floor;

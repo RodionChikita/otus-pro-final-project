@@ -12,7 +12,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class RealEstateDto extends Category{
+public class RealEstateDto extends AdDto{
     private Long id;
     private RealEstateType realEstateType;
     private byte numberOfRooms;

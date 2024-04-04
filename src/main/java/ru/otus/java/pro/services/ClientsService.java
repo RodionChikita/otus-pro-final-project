@@ -20,7 +20,10 @@ public class ClientsService {
     }
 
     public void createNewClient(CreateOrUpdateClientDtoRq createOrUpdateClientDtoRq) {
-        Client newClient = new Client(null, createOrUpdateClientDtoRq.getFullName(), new Date(), null, null, null);
+        Client newClient = Client.builder()
+                .fullName(createOrUpdateClientDtoRq.getFullName())
+                .dateOfAccountCreate(new Date())
+                .build();
         clientsRepository.save(newClient);
     }
     public Optional<Client> findById(@PathVariable Long id) {

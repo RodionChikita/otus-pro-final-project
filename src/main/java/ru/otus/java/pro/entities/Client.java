@@ -1,5 +1,6 @@
 package ru.otus.java.pro.entities;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -12,6 +13,7 @@ import java.util.Set;
 import java.util.UUID;
 @Getter
 @Setter
+@Builder
 @Table("clients")
 public class Client {
     @Id
@@ -19,20 +21,28 @@ public class Client {
     private String fullName;
     private Date dateOfAccountCreate;
     @MappedCollection(idColumn = "client_id")
-    private Set<Ad> actualAds;
+    private Set<RealEstate> actualAds;
     @MappedCollection(idColumn = "client_id")
-    private Set<Ad> archivedAds;
+    private Set<RealEstate> archivedAds;
     @MappedCollection(idColumn = "client_id")
-    private Set<Ad> featuredAds;
+    private Set<RealEstate> featuredAds;
     @MappedCollection(idColumn = "client_reviewed_id")
     private Set<Review> reviews;
+    @MappedCollection(idColumn = "client_customer_id")
+    private Set<Chat> customerChats;
+    @MappedCollection(idColumn = "client_seller_id")
+    private Set<Chat> sellerChats;
+
     @PersistenceCreator
-    public Client(Long id, String fullName, Date dateOfAccountCreate, Set<Ad> actualAds, Set<Ad> archivedAds, Set<Ad> featuredAds) {
+    public Client(Long id, String fullName, Date dateOfAccountCreate, Set<RealEstate> actualAds, Set<RealEstate> archivedAds, Set<RealEstate> featuredAds, Set<Review> reviews, Set<Chat> customerChats, Set<Chat> sellerChats) {
         this.id = id;
         this.fullName = fullName;
         this.dateOfAccountCreate = dateOfAccountCreate;
         this.actualAds = actualAds;
         this.archivedAds = archivedAds;
         this.featuredAds = featuredAds;
+        this.reviews = reviews;
+        this.customerChats = customerChats;
+        this.sellerChats = sellerChats;
     }
 }
