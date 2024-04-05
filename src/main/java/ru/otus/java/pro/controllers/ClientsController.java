@@ -17,20 +17,24 @@ import java.util.stream.Collectors;
 public class ClientsController {
     private final ClientsService clientsService;
     private static final Function<Client, ClientDto> MAP_TO_DTO_FUNCTION = a -> new ClientDto(a.getId(), a.getFullName(), a.getDateOfAccountCreate(), a.getActualAds(), a.getArchivedAds(), a.getFeaturedAds(), a.getReviews(), a.getCustomerChats(), a.getSellerChats());
+
     @Autowired
     public ClientsController(ClientsService clientsService) {
         this.clientsService = clientsService;
     }
+
     @PostMapping
-    public void createNewClient(@RequestBody CreateOrUpdateClientDtoRq createOrUpdateClientDtoRq){
+    public void createNewClient(@RequestBody CreateOrUpdateClientDtoRq createOrUpdateClientDtoRq) {
         clientsService.createNewClient(createOrUpdateClientDtoRq);
     }
+
     @GetMapping("/{id}")
-    public ClientDto findClientById(@PathVariable Long id){
+    public ClientDto findClientById(@PathVariable Long id) {
         return clientsService.findById(id).map(MAP_TO_DTO_FUNCTION).orElseThrow(() -> new ResourceNotFoundException("Message not found"));
     }
+
     @GetMapping
-    public SimplestPageDto<ClientDto> findAllClients(){
-        return new  SimplestPageDto<>(clientsService.findAll().stream().map(MAP_TO_DTO_FUNCTION).collect(Collectors.toList()));
+    public SimplestPageDto<ClientDto> findAllClients() {
+        return new SimplestPageDto<>(clientsService.findAll().stream().map(MAP_TO_DTO_FUNCTION).collect(Collectors.toList()));
     }
 }

@@ -12,6 +12,7 @@ import ru.otus.java.pro.services.RealEstatesService;
 @RequestMapping("/api/v1/ads/realEstate")
 public class RealEstatesController {
     private final RealEstatesService realEstatesService;
+
     @Autowired
     public RealEstatesController(RealEstatesService realEstatesService) {
         this.realEstatesService = realEstatesService;

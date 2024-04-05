@@ -4,17 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.relational.core.mapping.MappedCollection;
-import ru.otus.java.pro.entities.Category;
 import ru.otus.java.pro.entities.CategoryEnum;
 
-import java.util.Date;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateOrUpdateAdDtoRq{
+public class CreateOrUpdateAdDtoRq {
     private String title;
     private String description;
     private Long price;

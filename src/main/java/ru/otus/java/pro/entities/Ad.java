@@ -10,11 +10,12 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Date;
 import java.util.UUID;
+
 @Getter
 @Setter
 @SuperBuilder
 @Table("ads")
-public class Ad{
+public class Ad {
     @Id
     private UUID adId;
     @Transient
@@ -35,12 +36,13 @@ public class Ad{
     private CategoryEnum categoryEnum;
     @Transient
     private Long clientId;
+
     @PersistenceCreator
     public Ad(UUID adId, String title, Long clientId, Date postingDate, String description, Long price, boolean actuality, String city, String fullAddress, CategoryEnum categoryEnum) {
-        this.adId= adId;
+        this.adId = adId;
         this.title = title;
         this.postingDate = postingDate;
-        this.description =description;
+        this.description = description;
         this.price = price;
         this.actuality = actuality;
         this.city = city;

@@ -9,6 +9,7 @@ import ru.otus.java.pro.services.AdsService;
 //@RequestMapping("/api/v1/ads")
 public class AdsController {
     private final AdsService adsService;
+
     @Autowired
     public AdsController(AdsService adsService) {
         this.adsService = adsService;

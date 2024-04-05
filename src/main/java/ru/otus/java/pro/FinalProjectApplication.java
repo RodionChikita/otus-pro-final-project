@@ -12,20 +12,20 @@ import java.util.UUID;
 @SpringBootApplication
 public class FinalProjectApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(FinalProjectApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(FinalProjectApplication.class, args);
+    }
 
-	@Bean
-	BeforeConvertCallback<RealEstate> beforeSaveCallbackRealEstate() {
+    @Bean
+    BeforeConvertCallback<RealEstate> beforeSaveCallbackRealEstate() {
 
-		return (realEstate) -> {
-			if (realEstate.getAdId() == null) {
-				realEstate.setAdId(UUID.randomUUID());
-			}
-			return realEstate;
-		};
-	}
+        return (realEstate) -> {
+            if (realEstate.getAdId() == null) {
+                realEstate.setAdId(UUID.randomUUID());
+            }
+            return realEstate;
+        };
+    }
 //	@Bean
 //	BeforeConvertCallback<Ad> beforeSaveCallbackAd() {
 //

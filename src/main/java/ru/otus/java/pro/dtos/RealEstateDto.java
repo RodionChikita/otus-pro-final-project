@@ -4,15 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ru.otus.java.pro.entities.Category;
 import ru.otus.java.pro.entities.RealEstateType;
 
 import java.util.UUID;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class RealEstateDto extends AdDto{
+public class RealEstateDto extends AdDto {
     private Long id;
     private RealEstateType realEstateType;
     private byte numberOfRooms;

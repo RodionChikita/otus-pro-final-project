@@ -23,6 +23,7 @@ public class Chat {
     private Date createdAt;
     @MappedCollection(idColumn = "message_id")
     private List<Message> messages;
+
     @PersistenceCreator
     public Chat(Long id, Long clientCustomerId, Long clientSellerId, UUID adId, Date createdAt, List<Message> messages) {
         this.id = id;

@@ -4,15 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.relational.core.mapping.MappedCollection;
-import ru.otus.java.pro.entities.Ad;
 import ru.otus.java.pro.entities.Chat;
 import ru.otus.java.pro.entities.RealEstate;
 import ru.otus.java.pro.entities.Review;
 
 import java.util.Date;
 import java.util.Set;
-import java.util.UUID;
+
 @Getter
 @Setter
 @AllArgsConstructor

@@ -19,6 +19,7 @@ public class Review {
     private byte grade;
     private Date createdAt;
     private Long clientReviewedId;
+
     @PersistenceCreator
     public Review(Long id, Long clientId, String reviewText, byte grade, Date createdAt, Long clientReviewedId) {
         this.id = id;

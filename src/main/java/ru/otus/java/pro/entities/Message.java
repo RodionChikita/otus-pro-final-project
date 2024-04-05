@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Date;
+
 @Getter
 @Setter
 @Table("messages")
@@ -17,6 +18,7 @@ public class Message {
     private Long clientId;
     private Long chatId;
     private Date createdAt;
+
     @Autowired
     public Message(Long id, String messageText, Long clientId, Date createdAt) {
         this.id = id;

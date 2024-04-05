@@ -10,7 +10,7 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Date;
 import java.util.Set;
-import java.util.UUID;
+
 @Getter
 @Setter
 @Builder

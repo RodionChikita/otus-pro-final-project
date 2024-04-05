@@ -8,15 +8,18 @@ import ru.otus.java.pro.repositories.RealEstatesRepository;
 
 import java.util.Date;
 import java.util.UUID;
+
 @Service
 public class RealEstatesService {
     private final RealEstatesRepository realEstatesRepository;
     private final AdsService<RealEstate> adsService;
+
     @Autowired
     public RealEstatesService(RealEstatesRepository realEstatesRepository, AdsService<RealEstate> adsService) {
         this.realEstatesRepository = realEstatesRepository;
         this.adsService = adsService;
     }
+
     public void createNewRealEstate(CreateOrUpdateRealEstateDtoRq createOrUpdateRealEstateDtoRq
     ) {
         RealEstate newRealEstate = RealEstate.builder()

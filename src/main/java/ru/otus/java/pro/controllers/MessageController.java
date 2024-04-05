@@ -15,6 +15,7 @@ public class MessageController {
     public MessageController(MessagesService messagesService) {
         this.messagesService = messagesService;
     }
+
     @PostMapping
     private void createNewMessage(@RequestBody CreateOrUpdateMessageDtoRq createOrUpdateMessageDtoRq) {
         messagesService.createNewMessage(createOrUpdateMessageDtoRq);

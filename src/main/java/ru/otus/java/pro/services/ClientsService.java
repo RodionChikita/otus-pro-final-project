@@ -14,6 +14,7 @@ import java.util.Optional;
 @Service
 public class ClientsService {
     private final ClientsRepository clientsRepository;
+
     @Autowired
     public ClientsService(ClientsRepository clientRepository) {
         this.clientsRepository = clientRepository;
@@ -26,10 +27,12 @@ public class ClientsService {
                 .build();
         clientsRepository.save(newClient);
     }
+
     public Optional<Client> findById(@PathVariable Long id) {
         return clientsRepository.findById(id);
     }
-    public List<Client> findAll(){
+
+    public List<Client> findAll() {
         return clientsRepository.findAll();
     }
 }

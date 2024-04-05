@@ -5,16 +5,17 @@ import org.springframework.stereotype.Service;
 import ru.otus.java.pro.entities.Ad;
 import ru.otus.java.pro.repositories.AdsRepository;
 
-import java.util.Date;
 import java.util.UUID;
 
 @Service
 public class AdsService<T extends Ad> {
     private final AdsRepository adsRepository;
+
     @Autowired
     public AdsService(AdsRepository adsRepository) {
         this.adsRepository = adsRepository;
     }
+
     public void createNewAd(T createOrUpdateAdDtoRq, UUID id) {
         Ad newAd = Ad.builder()
                 .adId(id)

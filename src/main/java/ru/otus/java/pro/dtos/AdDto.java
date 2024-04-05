@@ -4,11 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ru.otus.java.pro.entities.Category;
 import ru.otus.java.pro.entities.CategoryEnum;
 
 import java.util.Date;
 import java.util.UUID;
+
 @Getter
 @Setter
 @AllArgsConstructor

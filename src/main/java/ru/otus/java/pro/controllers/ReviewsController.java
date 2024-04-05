@@ -12,10 +12,12 @@ import ru.otus.java.pro.services.ReviewsService;
 @RequestMapping("/api/v1/reviews")
 public class ReviewsController {
     private final ReviewsService reviewsService;
+
     @Autowired
     public ReviewsController(ReviewsService reviewsService) {
         this.reviewsService = reviewsService;
     }
+
     @PostMapping
     public void createNewReview(@RequestBody CreateOrUpdateReviewDtoRq createOrUpdateReviewDtoRq) {
         reviewsService.createNewReview(createOrUpdateReviewDtoRq);
