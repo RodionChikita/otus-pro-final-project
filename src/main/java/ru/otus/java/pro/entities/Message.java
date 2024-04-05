@@ -15,6 +15,7 @@ public class Message {
     private Long id;
     private String messageText;
     private Long clientId;
+    private Long chatId;
     private Date createdAt;
     @Autowired
     public Message(Long id, String messageText, Long clientId, Date createdAt) {

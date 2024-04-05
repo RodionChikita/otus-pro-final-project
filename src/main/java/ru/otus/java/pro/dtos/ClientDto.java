@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.relational.core.mapping.MappedCollection;
 import ru.otus.java.pro.entities.Ad;
+import ru.otus.java.pro.entities.Chat;
 import ru.otus.java.pro.entities.RealEstate;
 import ru.otus.java.pro.entities.Review;
 
@@ -23,4 +25,6 @@ public class ClientDto {
     private Set<RealEstate> archivedAds;
     private Set<RealEstate> featuredAds;
     private Set<Review> reviews;
+    private Set<Chat> customerChats;
+    private Set<Chat> sellerChats;
 }

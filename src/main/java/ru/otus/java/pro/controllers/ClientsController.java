@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/v1/clients")
 public class ClientsController {
     private final ClientsService clientsService;
-    private static final Function<Client, ClientDto> MAP_TO_DTO_FUNCTION = a -> new ClientDto(a.getId(), a.getFullName(), a.getDateOfAccountCreate(), a.getActualAds(), a.getArchivedAds(), a.getFeaturedAds(), a.getReviews());
+    private static final Function<Client, ClientDto> MAP_TO_DTO_FUNCTION = a -> new ClientDto(a.getId(), a.getFullName(), a.getDateOfAccountCreate(), a.getActualAds(), a.getArchivedAds(), a.getFeaturedAds(), a.getReviews(), a.getCustomerChats(), a.getSellerChats());
     @Autowired
     public ClientsController(ClientsService clientsService) {
         this.clientsService = clientsService;
@@ -27,7 +27,7 @@ public class ClientsController {
     }
     @GetMapping("/{id}")
     public ClientDto findClientById(@PathVariable Long id){
-        return clientsService.findById(id).map(MAP_TO_DTO_FUNCTION).orElseThrow(() -> new ResourceNotFoundException("Категория не найдена"));
+        return clientsService.findById(id).map(MAP_TO_DTO_FUNCTION).orElseThrow(() -> new ResourceNotFoundException("Message not found"));
     }
     @GetMapping
     public SimplestPageDto<ClientDto> findAllClients(){

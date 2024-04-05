@@ -28,8 +28,8 @@ public class AdsService<T extends Ad> {
                 .fullAddress(createOrUpdateAdDtoRq.getFullAddress())
                 .postingDate(createOrUpdateAdDtoRq.getPostingDate())
                 .build();
-        adsRepository.save(createOrUpdateAdDtoRq);
-        //adsRepository.createNewAd(newAd.getAdId(), newAd.getTitle(), newAd.getPostingDate(), newAd.getDescription(), newAd.getPrice(), newAd.isActuality(), newAd.getDescription(), newAd.getFullAddress(), newAd.getCategoryEnum(), newAd.getClientId());
+        //adsRepository.save(createOrUpdateAdDtoRq);
+        adsRepository.createNewAd(newAd.getAdId(), newAd.getTitle(), newAd.getPostingDate(), newAd.getDescription(), newAd.getPrice(), newAd.isActuality(), newAd.getDescription(), newAd.getFullAddress(), newAd.getCategoryEnum(), newAd.getClientId());
 
     }
 }

@@ -5,12 +5,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateOrUpdateMessageDtoRq {
+public class MessageDto {
+    private Long id;
     private String messageText;
     private Long clientId;
     private Long chatId;
+    private Date createdAt;
 }

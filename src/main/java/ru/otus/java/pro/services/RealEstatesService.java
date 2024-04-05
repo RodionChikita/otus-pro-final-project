@@ -35,8 +35,8 @@ public class RealEstatesService {
                 .postingDate(new Date())
                 .square(createOrUpdateRealEstateDtoRq.getSquare())
                 .build();
-        realEstatesRepository.save(newRealEstate);
-        //adsService.createNewAd(newRealEstate, newRealEstate.getAdId());
-        //realEstatesRepository.createNewRealEstate(newRealEstate.getAdId(), newRealEstate.getRealEstateType(), newRealEstate.getNumberOfRooms(), newRealEstate.getFloor(), newRealEstate.getSquare());
+        //realEstatesRepository.save(newRealEstate);
+        adsService.createNewAd(newRealEstate, newRealEstate.getAdId());
+        realEstatesRepository.createNewRealEstate(newRealEstate.getAdId(), newRealEstate.getRealEstateType(), newRealEstate.getNumberOfRooms(), newRealEstate.getFloor(), newRealEstate.getSquare());
     }
 }

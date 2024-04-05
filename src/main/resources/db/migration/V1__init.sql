@@ -47,13 +47,13 @@ create table chats(
     ad_id UUID,
     created_at timestamp,
     foreign key (client_customer_id) references clients (id)
-    foreign key (client_seller_id) references clients (id)
 );
 
 create table messages(
     id bigserial primary key,
     client_id bigint,
+    chat_id bigint,
     message_text varchar(255),
     created_at timestamp,
-    foreign key (client_id) references clients (id)
+    foreign key (chat_id) references chats (id)
 );
