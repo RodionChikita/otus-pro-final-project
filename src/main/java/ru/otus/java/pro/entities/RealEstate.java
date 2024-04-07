@@ -20,8 +20,8 @@ public class RealEstate extends Ad {
     private int square;
 
     @PersistenceCreator
-    public RealEstate(RealEstateType realEstateType, byte numberOfRooms, byte floor, int square, UUID adId, String title, Long clientId, Date postingDate, String description, Long price, boolean actuality, String city, String fullAddress, CategoryEnum categoryEnum) {
-        super(adId, title, clientId, postingDate, description, price, actuality, city, fullAddress, categoryEnum);
+    public RealEstate(RealEstateType realEstateType, byte numberOfRooms, byte floor, int square, UUID id, UUID adId, String title, Long clientId, Date postingDate, String description, Long price, boolean actuality, String city, String fullAddress, CategoryEnum categoryEnum) {
+        super(id, adId, title, clientId, postingDate, description, price, actuality, city, fullAddress, categoryEnum);
         this.realEstateType = realEstateType;
         this.numberOfRooms = numberOfRooms;
         this.floor = floor;

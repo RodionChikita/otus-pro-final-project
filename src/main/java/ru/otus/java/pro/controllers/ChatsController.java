@@ -11,11 +11,11 @@ import java.util.function.Function;
 
 @RestController
 @RequestMapping("api/v1/chats")
-public class ChatController {
+public class ChatsController {
     private final ChatsService chatsService;
     private static final Function<Chat, ChatDto> MAP_TO_DTO_FUNCTION = a -> new ChatDto(a.getId(), a.getClientCustomerId(), a.getClientSellerId(), a.getAdId(), a.getCreatedAt());
 
-    public ChatController(ChatsService chatsService) {
+    public ChatsController(ChatsService chatsService) {
         this.chatsService = chatsService;
     }
 

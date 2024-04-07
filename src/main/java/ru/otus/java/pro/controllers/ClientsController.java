@@ -37,4 +37,9 @@ public class ClientsController {
     public SimplestPageDto<ClientDto> findAllClients() {
         return new SimplestPageDto<>(clientsService.findAll().stream().map(MAP_TO_DTO_FUNCTION).collect(Collectors.toList()));
     }
+
+    @PatchMapping("/{id}/fullName")
+    public void updateFullNameById(@PathVariable Long id, @RequestParam String value) {
+        clientsService.updateFullNameById(id, value);
+    }
 }

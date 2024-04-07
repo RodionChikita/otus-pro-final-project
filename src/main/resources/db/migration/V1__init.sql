@@ -8,7 +8,7 @@ create table clients (
 );
 
 create table ads (
-    ad_id UUID primary key,
+    id UUID primary key,
     title varchar(255),
     posting_date timestamp,
     description varchar(255),
@@ -22,12 +22,12 @@ create table ads (
 );
 
 create table real_estates (
-    ad_id UUID primary key,
+    id UUID primary key,
     real_estate_type varchar(255),
     number_of_rooms smallint,
     floor smallint,
     square int,
-    foreign key (ad_id) references ads (ad_id)
+    foreign key (id) references ads (id)
 );
 
 create table reviews(

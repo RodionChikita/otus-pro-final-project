@@ -13,10 +13,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RealEstateDto extends AdDto {
-    private Long id;
     private RealEstateType realEstateType;
     private byte numberOfRooms;
     private byte floor;
     private int square;
-    private UUID adId;
 }

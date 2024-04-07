@@ -17,21 +17,13 @@ public class FinalProjectApplication {
     }
 
     @Bean
-    BeforeConvertCallback<RealEstate> beforeSaveCallbackRealEstate() {
+    BeforeConvertCallback<? extends Ad> beforeSaveCallbackRealEstate() {
 
-        return (realEstate) -> {
-            if (realEstate.getAdId() == null) {
-                realEstate.setAdId(UUID.randomUUID());
+        return (ad) -> {
+            if (ad.getId() == null) {
+                ad.setId(ad.getAdId());
             }
-            return realEstate;
+            return ad;
         };
     }
-//	@Bean
-//	BeforeConvertCallback<Ad> beforeSaveCallbackAd() {
-//
-//		return (ad) -> {
-//				ad.setAdId(ad.getAdId());
-//			return ad;
-//		};
-//	}
 }

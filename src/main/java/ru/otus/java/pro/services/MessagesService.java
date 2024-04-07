@@ -21,4 +21,12 @@ public class MessagesService {
         Message newMessage = new Message(null, createOrUpdateMessageDtoRq.getMessageText(), createOrUpdateMessageDtoRq.getClientId(), new Date());
         messagesRepository.save(newMessage);
     }
+
+    public void deleteById(Long id) {
+        messagesRepository.deleteById(id);
+    }
+
+    public void updateMessageTextById(Long id, String newMessageText) {
+        messagesRepository.changeMessageTextById(id, newMessageText);
+    }
 }

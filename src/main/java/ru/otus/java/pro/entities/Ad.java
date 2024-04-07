@@ -17,6 +17,8 @@ import java.util.UUID;
 @Table("ads")
 public class Ad {
     @Id
+    private UUID id;
+    @Transient
     private UUID adId;
     @Transient
     private String title;
@@ -38,7 +40,8 @@ public class Ad {
     private Long clientId;
 
     @PersistenceCreator
-    public Ad(UUID adId, String title, Long clientId, Date postingDate, String description, Long price, boolean actuality, String city, String fullAddress, CategoryEnum categoryEnum) {
+    public Ad(UUID id, UUID adId, String title, Long clientId, Date postingDate, String description, Long price, boolean actuality, String city, String fullAddress, CategoryEnum categoryEnum) {
+        this.id = id;
         this.adId = adId;
         this.title = title;
         this.postingDate = postingDate;

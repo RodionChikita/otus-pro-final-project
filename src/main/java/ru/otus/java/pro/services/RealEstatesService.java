@@ -2,11 +2,16 @@ package ru.otus.java.pro.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import ru.otus.java.pro.dtos.AdDto;
 import ru.otus.java.pro.dtos.CreateOrUpdateRealEstateDtoRq;
+import ru.otus.java.pro.dtos.RealEstateDto;
 import ru.otus.java.pro.entities.RealEstate;
 import ru.otus.java.pro.repositories.RealEstatesRepository;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -38,8 +43,15 @@ public class RealEstatesService {
                 .postingDate(new Date())
                 .square(createOrUpdateRealEstateDtoRq.getSquare())
                 .build();
-        //realEstatesRepository.save(newRealEstate);
         adsService.createNewAd(newRealEstate, newRealEstate.getAdId());
-        realEstatesRepository.createNewRealEstate(newRealEstate.getAdId(), newRealEstate.getRealEstateType(), newRealEstate.getNumberOfRooms(), newRealEstate.getFloor(), newRealEstate.getSquare());
+        realEstatesRepository.save(newRealEstate);
+    }
+
+    public Optional<RealEstateDto> findById(@PathVariable UUID id) {
+        return realEstatesRepository.findByIdRealEstateDto(id);
+    }
+
+    public List<RealEstateDto> findAll() {
+        return realEstatesRepository.findAllRealEstatesDto();
     }
 }

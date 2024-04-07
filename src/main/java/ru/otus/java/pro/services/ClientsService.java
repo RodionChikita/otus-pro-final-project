@@ -35,4 +35,8 @@ public class ClientsService {
     public List<Client> findAll() {
         return clientsRepository.findAll();
     }
+
+    public void updateFullNameById(Long id, String newFullName) {
+        clientsRepository.changeFullNameById(id, newFullName);
+    }
 }
