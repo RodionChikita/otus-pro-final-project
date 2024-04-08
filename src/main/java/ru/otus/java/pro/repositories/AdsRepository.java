@@ -33,5 +33,16 @@ public interface AdsRepository extends ListCrudRepository<Ad, UUID> {
             select a.id, a.title, a.posting_date, a.description, a.price, a.actuality, a.city, a.full_address, a.category_enum, a.client_id 
             from ADS a
             """)
-    List<AdDto> findAllAdsDto();
+    List<AdDto> findAllAdDto();
+
+    @Query("update ads set actuality = :newActuality where id = :id")
+    @Modifying
+    void updateActualityById(UUID id, boolean newActuality);
+    @Query("""
+            select a.id, a.title, a.posting_date, a.description, a.price, a.actuality, a.city, a.full_address, a.category_enum, a.client_id 
+            from ADS a
+            where a.client_id = :id
+            """)
+
+    List<AdDto> findAllAdDtoByClientId(Long id);
 }

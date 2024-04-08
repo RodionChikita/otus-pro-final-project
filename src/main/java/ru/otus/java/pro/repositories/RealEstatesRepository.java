@@ -16,6 +16,7 @@ public interface RealEstatesRepository extends ListCrudRepository<RealEstate, UU
     @Query("""
             select a.id, a.title, a.posting_date, a.description, a.price, a.actuality, a.city, a.full_address, a.category_enum, a.client_id 
             from ADS a
+            where a.id = :id
             """)
     Optional<RealEstateDto> findByIdRealEstateDto(UUID id);
 

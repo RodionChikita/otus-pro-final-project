@@ -5,7 +5,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import ru.otus.java.pro.dtos.AdDto;
 import ru.otus.java.pro.entities.Ad;
-import ru.otus.java.pro.entities.Client;
+import ru.otus.java.pro.entities.CategoryEnum;
+import ru.otus.java.pro.exceptions.ResourceNotFoundException;
 import ru.otus.java.pro.repositories.AdsRepository;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class AdsService<T extends Ad> {
+public class AdsService {
     private final AdsRepository adsRepository;
 
     @Autowired
@@ -21,7 +22,7 @@ public class AdsService<T extends Ad> {
         this.adsRepository = adsRepository;
     }
 
-    public void createNewAd(T createOrUpdateAdDtoRq, UUID adId) {
+    public <T extends Ad> void createNewAd (T createOrUpdateAdDtoRq, UUID adId) {
         Ad newAd = Ad.builder()
                 .adId(adId)
                 .city(createOrUpdateAdDtoRq.getCity())
@@ -42,6 +43,17 @@ public class AdsService<T extends Ad> {
     }
 
     public List<AdDto> findAll() {
-        return adsRepository.findAllAdsDto();
+        return adsRepository.findAllAdDto();
+    }
+
+    public List<AdDto> findAllByClientId(@PathVariable Long id) {
+        return adsRepository.findAllAdDtoByClientId(id);
+    }
+
+    public void updateActualityById(UUID id) {
+        if (findById(id).isPresent()){
+        boolean newActuality = !findById(id).get().isActuality();
+        adsRepository.updateActualityById(id , newActuality);
+        } else throw new ResourceNotFoundException("Ad not found");
     }
 }

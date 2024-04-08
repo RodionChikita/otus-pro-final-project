@@ -3,7 +3,20 @@ server:
   port: 8189
   servlet:
     context-path: /app
+springdoc:
+
+  api-docs:
+    path: /docs
+
+  swagger-ui:
+    filter: true
+    tryItOutEnabled: true
+    path: /swagger
+
 spring:
+  application:
+    name: avito-api
+
   datasource:
     url: jdbc:postgresql://localhost:8281/otus
     password: otus

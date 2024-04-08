@@ -19,10 +19,10 @@ public class ClientDto {
     private Long id;
     private String fullName;
     private Date dateOfAccountCreate;
-    private Set<RealEstate> actualAds;
-    private Set<RealEstate> archivedAds;
-    private Set<RealEstate> featuredAds;
-    private Set<Review> reviews;
-    private Set<Chat> customerChats;
-    private Set<Chat> sellerChats;
+//    private Set<RealEstate> actualAds;
+//    private Set<RealEstate> archivedAds;
+//    private Set<RealEstate> featuredAds;
+//    private Set<Review> reviews;
+//    private Set<Chat> customerChats;
+//    private Set<Chat> sellerChats;
 }

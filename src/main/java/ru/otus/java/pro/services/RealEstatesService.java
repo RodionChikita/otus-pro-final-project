@@ -17,10 +17,10 @@ import java.util.UUID;
 @Service
 public class RealEstatesService {
     private final RealEstatesRepository realEstatesRepository;
-    private final AdsService<RealEstate> adsService;
+    private final AdsService adsService;
 
     @Autowired
-    public RealEstatesService(RealEstatesRepository realEstatesRepository, AdsService<RealEstate> adsService) {
+    public RealEstatesService(RealEstatesRepository realEstatesRepository, AdsService adsService) {
         this.realEstatesRepository = realEstatesRepository;
         this.adsService = adsService;
     }

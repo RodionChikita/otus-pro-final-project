@@ -3,6 +3,7 @@ package ru.otus.java.pro.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
+import ru.otus.java.pro.dtos.ClientDto;
 import ru.otus.java.pro.dtos.CreateOrUpdateClientDtoRq;
 import ru.otus.java.pro.entities.Client;
 import ru.otus.java.pro.repositories.ClientsRepository;
@@ -28,12 +29,12 @@ public class ClientsService {
         clientsRepository.save(newClient);
     }
 
-    public Optional<Client> findById(@PathVariable Long id) {
-        return clientsRepository.findById(id);
+    public Optional<ClientDto> findById(@PathVariable Long id) {
+        return clientsRepository.findByIdClientDto(id);
     }
 
-    public List<Client> findAll() {
-        return clientsRepository.findAll();
+    public List<ClientDto> findAll() {
+        return clientsRepository.findAllClientDto();
     }
 
     public void updateFullNameById(Long id, String newFullName) {
