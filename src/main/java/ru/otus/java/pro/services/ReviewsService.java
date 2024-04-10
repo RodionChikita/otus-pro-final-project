@@ -28,4 +28,12 @@ public class ReviewsService {
     public List<ReviewDto> findAllByClientId(@PathVariable Long id){
         return reviewsRepository.findAllByClientId(id);
     }
+
+    public void deleteById(Long id) {
+        reviewsRepository.deleteById(id);
+    }
+
+    public void updateReviewTextById(Long id, String newReviewText) {
+        reviewsRepository.changeMessageTextById(id, newReviewText);
+    }
 }

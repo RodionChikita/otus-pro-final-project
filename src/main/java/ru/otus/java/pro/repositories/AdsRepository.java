@@ -45,4 +45,11 @@ public interface AdsRepository extends ListCrudRepository<Ad, UUID> {
             """)
 
     List<AdDto> findAllAdDtoByClientId(Long id);
+    @Query("""
+            select a.id, a.title, a.posting_date, a.description, a.price, a.actuality, a.city, a.full_address, a.category_enum, a.client_id 
+            from ADS a
+            where a.client_id = :id
+            and a.actuality = :isActual
+            """)
+    List<AdDto> findAllAdDtoByClientIdAndActuality(Long id, boolean isActual);
 }

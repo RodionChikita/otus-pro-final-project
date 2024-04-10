@@ -13,7 +13,7 @@ import java.util.function.Function;
 @RequestMapping("api/v1/chats")
 public class ChatsController {
     private final ChatsService chatsService;
-    private static final Function<Chat, ChatDto> MAP_TO_DTO_FUNCTION = a -> new ChatDto(a.getId(), a.getClientCustomerId(), a.getClientSellerId(), a.getAdId(), a.getCreatedAt());
+    private static final Function<Chat, ChatDto> MAP_TO_DTO_FUNCTION = a -> new ChatDto(a.getId(), a.getClientCustomerId(), a.getClientSellerId(), a.getAdId(), a.getCreatedAt(), a.getMessages());
 
     public ChatsController(ChatsService chatsService) {
         this.chatsService = chatsService;
@@ -28,4 +28,5 @@ public class ChatsController {
     public ChatDto findChatById(@PathVariable Long id) {
         return chatsService.findById(id).map(MAP_TO_DTO_FUNCTION).orElseThrow(() -> new ResourceNotFoundException("Chat not found"));
     }
+
 }

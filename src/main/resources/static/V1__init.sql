@@ -1,4 +1,4 @@
-CREATE TYPE category_enum AS ENUM ('REAL_ESTATE');
+CREATE TYPE category_enum AS ENUM ('REAL_ESTATE', 'SHOES');
 CREATE TYPE real_estate_type AS ENUM ('FLAT', 'HOSE');
 
 create table clients (
@@ -56,4 +56,11 @@ create table messages(
     message_text varchar(255),
     created_at timestamp,
     foreign key (chat_id) references chats (id)
+);
+
+create table shoes (
+    id UUID primary key,
+    size smallint,
+    brand varchar(255),
+    foreign key (id) references ads (id)
 );

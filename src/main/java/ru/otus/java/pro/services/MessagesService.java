@@ -18,7 +18,7 @@ public class MessagesService {
     }
 
     public void createNewMessage(CreateOrUpdateMessageDtoRq createOrUpdateMessageDtoRq) {
-        Message newMessage = new Message(null, createOrUpdateMessageDtoRq.getMessageText(), createOrUpdateMessageDtoRq.getClientId(), new Date());
+        Message newMessage = new Message(null, createOrUpdateMessageDtoRq.getMessageText(), createOrUpdateMessageDtoRq.getClientId(), createOrUpdateMessageDtoRq.getChatId(), new Date());
         messagesRepository.save(newMessage);
     }
 

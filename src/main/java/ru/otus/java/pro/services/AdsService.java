@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import ru.otus.java.pro.dtos.AdDto;
 import ru.otus.java.pro.entities.Ad;
-import ru.otus.java.pro.entities.CategoryEnum;
 import ru.otus.java.pro.exceptions.ResourceNotFoundException;
 import ru.otus.java.pro.repositories.AdsRepository;
 
@@ -55,5 +54,9 @@ public class AdsService {
         boolean newActuality = !findById(id).get().isActuality();
         adsRepository.updateActualityById(id , newActuality);
         } else throw new ResourceNotFoundException("Ad not found");
+    }
+
+    public List<AdDto> findAllByClientIdAndActuality(Long id, boolean isActual) {
+        return adsRepository.findAllAdDtoByClientIdAndActuality(id, isActual);
     }
 }

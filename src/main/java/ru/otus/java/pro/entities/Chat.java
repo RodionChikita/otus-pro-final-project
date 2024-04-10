@@ -9,6 +9,7 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -21,11 +22,11 @@ public class Chat {
     private Long clientSellerId;
     private UUID adId;
     private Date createdAt;
-    @MappedCollection(idColumn = "message_id")
-    private List<Message> messages;
+    @MappedCollection(idColumn = "chat_id")
+    private Set<Message> messages;
 
     @PersistenceCreator
-    public Chat(Long id, Long clientCustomerId, Long clientSellerId, UUID adId, Date createdAt, List<Message> messages) {
+    public Chat(Long id, Long clientCustomerId, Long clientSellerId, UUID adId, Date createdAt, Set<Message> messages) {
         this.id = id;
         this.clientCustomerId = clientCustomerId;
         this.clientSellerId = clientSellerId;

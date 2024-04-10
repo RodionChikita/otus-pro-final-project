@@ -20,10 +20,11 @@ public class Message {
     private Date createdAt;
 
     @Autowired
-    public Message(Long id, String messageText, Long clientId, Date createdAt) {
+    public Message(Long id, String messageText, Long clientId, Long chatId, Date createdAt) {
         this.id = id;
         this.messageText = messageText;
         this.clientId = clientId;
+        this.chatId = chatId;
         this.createdAt = createdAt;
     }
 }

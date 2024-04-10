@@ -1,5 +1,6 @@
 package ru.otus.java.pro.repositories;
 
+import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Repository;
@@ -16,4 +17,7 @@ public interface ReviewsRepository extends ListCrudRepository<Review, Long> {
             where r.client_reviewed_id = :id
             """)
     List<ReviewDto> findAllByClientId(Long id);
+    @Query("update reviews set review_text = :reviewText where id = :id")
+    @Modifying
+    void changeMessageTextById(Long id, String reviewText);
 }

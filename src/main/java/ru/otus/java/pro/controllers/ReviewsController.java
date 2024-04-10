@@ -1,10 +1,7 @@
 package ru.otus.java.pro.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.otus.java.pro.dtos.CreateOrUpdateReviewDtoRq;
 import ru.otus.java.pro.services.ReviewsService;
 
@@ -21,5 +18,14 @@ public class ReviewsController {
     @PostMapping
     public void createNewReview(@RequestBody CreateOrUpdateReviewDtoRq createOrUpdateReviewDtoRq) {
         reviewsService.createNewReview(createOrUpdateReviewDtoRq);
+    }
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Long id) {
+        reviewsService.deleteById(id);
+    }
+
+    @PatchMapping("/{id}/messageText")
+    public void updateReviewTextById(@PathVariable Long id, @RequestParam String value) {
+        reviewsService.updateReviewTextById(id, value);
     }
 }

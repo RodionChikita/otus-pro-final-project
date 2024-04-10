@@ -29,12 +29,12 @@ public class ClientsService {
         clientsRepository.save(newClient);
     }
 
-    public Optional<ClientDto> findById(@PathVariable Long id) {
-        return clientsRepository.findByIdClientDto(id);
+    public Optional<Client> findById(@PathVariable Long id) {
+        return clientsRepository.findById(id);
     }
 
-    public List<ClientDto> findAll() {
-        return clientsRepository.findAllClientDto();
+    public List<Client> findAll() {
+        return clientsRepository.findAll();
     }
 
     public void updateFullNameById(Long id, String newFullName) {
