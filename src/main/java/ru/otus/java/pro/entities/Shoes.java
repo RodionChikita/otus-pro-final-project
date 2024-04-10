@@ -7,11 +7,12 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Date;
 import java.util.UUID;
+
 @Getter
 @Setter
 @Table("shoes")
 @SuperBuilder
-public class Shoes extends Ad{
+public class Shoes extends Ad {
     private byte size;
     private String brand;
 

@@ -3,7 +3,6 @@ package ru.otus.java.pro.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
-import ru.otus.java.pro.dtos.AdDto;
 import ru.otus.java.pro.dtos.CreateOrUpdateRealEstateDtoRq;
 import ru.otus.java.pro.dtos.RealEstateDto;
 import ru.otus.java.pro.entities.RealEstate;

@@ -25,6 +25,7 @@ public class RealEstatesController {
     public void createNewAd(@RequestBody CreateOrUpdateRealEstateDtoRq createOrUpdateRealEstateDtoRq) {
         realEstatesService.createNewRealEstate(createOrUpdateRealEstateDtoRq);
     }
+
     @GetMapping("/{id}")
     public AdDto findAdById(@PathVariable UUID id) {
         return realEstatesService.findById(id).orElseThrow(() -> new ResourceNotFoundException("Ad not found"));

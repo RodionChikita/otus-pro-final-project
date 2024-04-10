@@ -38,27 +38,28 @@ public class AdsDetailedService {
         }
     }
 
-    public List<Optional<? extends AdDto>> findAll(){
+    public List<Optional<? extends AdDto>> findAll() {
         List<AdDto> adDtoList = adsService.findAll();
         List<Optional<? extends AdDto>> adDetailedDtoList = new ArrayList<>();
-        for (AdDto adDto : adDtoList){
+        for (AdDto adDto : adDtoList) {
             adDetailedDtoList.add(findById(adDto.getId()));
         }
         return adDetailedDtoList;
     }
 
-    public List<Optional<? extends AdDto>> findAllByClientId(@PathVariable Long id){
+    public List<Optional<? extends AdDto>> findAllByClientId(@PathVariable Long id) {
         List<AdDto> adDtoList = adsService.findAllByClientId(id);
         List<Optional<? extends AdDto>> adDetailedDtoList = new ArrayList<>();
-        for (AdDto adDto : adDtoList){
+        for (AdDto adDto : adDtoList) {
             adDetailedDtoList.add(findById(adDto.getId()));
         }
         return adDetailedDtoList;
     }
-    public List<Optional<? extends AdDto>> findAllByClientIdAndActuality(@PathVariable Long id, boolean isActual){
+
+    public List<Optional<? extends AdDto>> findAllByClientIdAndActuality(@PathVariable Long id, boolean isActual) {
         List<AdDto> adDtoList = adsService.findAllByClientIdAndActuality(id, isActual);
         List<Optional<? extends AdDto>> adDetailedDtoList = new ArrayList<>();
-        for (AdDto adDto : adDtoList){
+        for (AdDto adDto : adDtoList) {
             adDetailedDtoList.add(findById(adDto.getId()));
         }
         return adDetailedDtoList;

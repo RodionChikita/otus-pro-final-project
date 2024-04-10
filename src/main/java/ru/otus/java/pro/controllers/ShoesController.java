@@ -20,6 +20,7 @@ public class ShoesController {
     public void createNewAd(@RequestBody CreateOrUpdateShoesDtoRq createOrUpdateShoesDtoRq) {
         shoesService.createNewShoes(createOrUpdateShoesDtoRq);
     }
+
     @GetMapping("/{id}")
     public AdDto findAdById(@PathVariable UUID id) {
         return shoesService.findById(id).orElseThrow(() -> new ResourceNotFoundException("Ad not found"));

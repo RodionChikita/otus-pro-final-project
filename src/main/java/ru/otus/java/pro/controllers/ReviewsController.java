@@ -19,6 +19,7 @@ public class ReviewsController {
     public void createNewReview(@RequestBody CreateOrUpdateReviewDtoRq createOrUpdateReviewDtoRq) {
         reviewsService.createNewReview(createOrUpdateReviewDtoRq);
     }
+
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Long id) {
         reviewsService.deleteById(id);

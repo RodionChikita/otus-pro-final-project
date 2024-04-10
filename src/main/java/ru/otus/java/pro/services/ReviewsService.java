@@ -25,7 +25,7 @@ public class ReviewsService {
         reviewsRepository.save(newReview);
     }
 
-    public List<ReviewDto> findAllByClientId(@PathVariable Long id){
+    public List<ReviewDto> findAllByClientId(@PathVariable Long id) {
         return reviewsRepository.findAllByClientId(id);
     }
 

@@ -21,7 +21,7 @@ public class AdsService {
         this.adsRepository = adsRepository;
     }
 
-    public <T extends Ad> void createNewAd (T createOrUpdateAdDtoRq, UUID adId) {
+    public <T extends Ad> void createNewAd(T createOrUpdateAdDtoRq, UUID adId) {
         Ad newAd = Ad.builder()
                 .adId(adId)
                 .city(createOrUpdateAdDtoRq.getCity())
@@ -50,9 +50,9 @@ public class AdsService {
     }
 
     public void updateActualityById(UUID id) {
-        if (findById(id).isPresent()){
-        boolean newActuality = !findById(id).get().isActuality();
-        adsRepository.updateActualityById(id , newActuality);
+        if (findById(id).isPresent()) {
+            boolean newActuality = !findById(id).get().isActuality();
+            adsRepository.updateActualityById(id, newActuality);
         } else throw new ResourceNotFoundException("Ad not found");
     }
 

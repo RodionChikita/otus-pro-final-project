@@ -5,7 +5,6 @@ import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Repository;
 import ru.otus.java.pro.dtos.RealEstateDto;
 import ru.otus.java.pro.entities.RealEstate;
-import ru.otus.java.pro.entities.RealEstateType;
 
 import java.util.List;
 import java.util.Optional;

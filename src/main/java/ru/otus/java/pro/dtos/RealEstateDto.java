@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.otus.java.pro.entities.RealEstateType;
 
-import java.util.UUID;
-
 @Getter
 @Setter
 @NoArgsConstructor

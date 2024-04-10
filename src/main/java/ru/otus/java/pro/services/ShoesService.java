@@ -3,7 +3,6 @@ package ru.otus.java.pro.services;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import ru.otus.java.pro.dtos.CreateOrUpdateShoesDtoRq;
-import ru.otus.java.pro.dtos.RealEstateDto;
 import ru.otus.java.pro.dtos.ShoesDto;
 import ru.otus.java.pro.entities.Shoes;
 import ru.otus.java.pro.repositories.ShoesRepository;
@@ -22,6 +21,7 @@ public class ShoesService {
         this.shoesRepository = shoesRepository;
         this.adsService = adsService;
     }
+
     public void createNewShoes(CreateOrUpdateShoesDtoRq createOrUpdateShoesDtoRq
     ) {
         Shoes newShoes = Shoes.builder()

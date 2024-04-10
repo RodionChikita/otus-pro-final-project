@@ -3,7 +3,6 @@ package ru.otus.java.pro.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.otus.java.pro.dtos.*;
-import ru.otus.java.pro.entities.Chat;
 import ru.otus.java.pro.entities.Client;
 import ru.otus.java.pro.exceptions.ResourceNotFoundException;
 import ru.otus.java.pro.services.AdsDetailedService;
@@ -59,10 +58,12 @@ public class ClientsController {
     public List<ReviewDto> findAllReviewsByClientId(@PathVariable Long id) {
         return reviewsService.findAllByClientId(id);
     }
+
     @GetMapping("/{id}/actualAds")
     public List<Optional<? extends AdDto>> findAllActualAdsByClientId(@PathVariable Long id) {
         return adsDetailedService.findAllByClientIdAndActuality(id, true);
     }
+
     @GetMapping("/{id}/archivedAds")
     public List<Optional<? extends AdDto>> findAllArchivedAdsByClientId(@PathVariable Long id) {
         return adsDetailedService.findAllByClientIdAndActuality(id, false);

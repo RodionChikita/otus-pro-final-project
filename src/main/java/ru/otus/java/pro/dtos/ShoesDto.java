@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ShoesDto extends AdDto{
+public class ShoesDto extends AdDto {
     private byte size;
     private String brand;
 }

@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateOrUpdateShoesDtoRq extends CreateOrUpdateAdDtoRq{
+public class CreateOrUpdateShoesDtoRq extends CreateOrUpdateAdDtoRq {
     private byte size;
     private String brand;
 }

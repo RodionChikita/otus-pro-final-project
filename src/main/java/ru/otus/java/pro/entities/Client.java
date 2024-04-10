@@ -20,12 +20,6 @@ public class Client {
     private Long id;
     private String fullName;
     private Date dateOfAccountCreate;
-//    @MappedCollection(idColumn = "client_id")
-//    private Set<RealEstate> actualAds;
-//    @MappedCollection(idColumn = "client_id")
-//    private Set<RealEstate> archivedAds;
-//    @MappedCollection(idColumn = "client_id")
-//    private Set<RealEstate> featuredAds;
     @MappedCollection(idColumn = "client_reviewed_id")
     private Set<Review> reviews;
     @MappedCollection(idColumn = "client_customer_id")
