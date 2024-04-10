@@ -17,13 +17,14 @@ public interface ShoesRepository extends ListCrudRepository<Shoes, Long> {
             select a.id, a.title, a.posting_date, a.description, a.price, a.actuality, a.city, a.full_address, a.category_enum, a.client_id, s.size, s.brand
             from ADS a
             left join Shoes s on s.id = a.id
+            where a.category_enum = 'SHOES'
             """)
     List<ShoesDto> findAllShoesDto();
     @Query("""
             select a.id, a.title, a.posting_date, a.description, a.price, a.actuality, a.city, a.full_address, a.category_enum, a.client_id, s.size, s.brand
             from ADS a
             left join Shoes s on s.id = a.id
-            where a.id = :id
+            where a.id = :id and a.category_enum = 'SHOES'
             """)
     Optional<ShoesDto> findByIdShoesDto(UUID id);
 }

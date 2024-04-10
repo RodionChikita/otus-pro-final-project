@@ -17,7 +17,7 @@ public interface RealEstatesRepository extends ListCrudRepository<RealEstate, UU
             select a.id, a.title, a.posting_date, a.description, a.price, a.actuality, a.city, a.full_address, a.category_enum, a.client_id, r.real_estate_type, r. number_of_rooms, r.floor, r.square
             from ADS a
             left join REAL_ESTATES r on r.id = a.id
-            where a.id = :id
+            where a.id = :id and a.category_enum = 'REAL_ESTATE'
             """)
     Optional<RealEstateDto> findByIdRealEstateDto(UUID id);
 
@@ -25,6 +25,7 @@ public interface RealEstatesRepository extends ListCrudRepository<RealEstate, UU
             select a.id, a.title, a.posting_date, a.description, a.price, a.actuality, a.city, a.full_address, a.category_enum, a.client_id, r.real_estate_type, r. number_of_rooms, r.floor, r.square 
             from ADS a
             left join REAL_ESTATES r on r.id = a.id
+            where a.category_enum = 'REAL_ESTATE'
             """)
     List<RealEstateDto> findAllRealEstatesDto();
 }

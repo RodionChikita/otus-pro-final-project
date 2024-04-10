@@ -1,1 +1,0 @@
-ALTER TYPE category_enum ADD VALUE 'SHOES'
