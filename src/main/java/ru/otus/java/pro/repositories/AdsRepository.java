@@ -53,4 +53,16 @@ public interface AdsRepository extends ListCrudRepository<Ad, UUID> {
             and a.actuality = :isActual
             """)
     List<AdDto> findAllAdDtoByClientIdAndActuality(Long id, boolean isActual);
+    @Query("""
+            INSERT INTO client_featured_ads (clientId, adId)
+            VALUES (:clientId, :adId;
+            """)
+    @Modifying
+    void addFeaturedAdd(Long clientId, UUID adId);
+    @Query("""
+            select a.id, a.title, a.posting_date, a.description, a.price, a.actuality, a.city, a.full_address, a.category_enum, a.client_id 
+            from ADS a
+            where a.client_id = :id
+            """)
+    List<AdDto> findAllAdDtoByClientIdAndFeature(Long id);
 }

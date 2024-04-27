@@ -68,4 +68,9 @@ public class ClientsController {
     public List<Optional<? extends AdDto>> findAllArchivedAdsByClientId(@PathVariable Long id) {
         return adsDetailedService.findAllByClientIdAndActuality(id, false);
     }
+
+    @GetMapping("/{id}/featuredAds")
+    public List<Optional<? extends AdDto>> findAllFeaturedAdsByClientId(@PathVariable Long id) {
+        return adsDetailedService.findAllByClientIdAndFeature(id);
+    }
 }

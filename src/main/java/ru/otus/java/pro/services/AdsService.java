@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import ru.otus.java.pro.dtos.AdDto;
+import ru.otus.java.pro.dtos.CreateOrUpdateAdDtoRq;
 import ru.otus.java.pro.entities.Ad;
 import ru.otus.java.pro.exceptions.ResourceNotFoundException;
 import ru.otus.java.pro.repositories.AdsRepository;
@@ -20,6 +21,7 @@ public class AdsService {
     public AdsService(AdsRepository adsRepository) {
         this.adsRepository = adsRepository;
     }
+
 
     public <T extends Ad> void createNewAd(T createOrUpdateAdDtoRq, UUID adId) {
         Ad newAd = Ad.builder()
@@ -58,5 +60,13 @@ public class AdsService {
 
     public List<AdDto> findAllByClientIdAndActuality(Long id, boolean isActual) {
         return adsRepository.findAllAdDtoByClientIdAndActuality(id, isActual);
+    }
+
+    public void addFeaturedAdd(Long clientId, @PathVariable UUID adId) {
+        adsRepository.addFeaturedAdd(clientId, adId);
+    }
+
+    public List<AdDto> findAllByClientIdAndFeature(Long id) {
+        return adsRepository.findAllAdDtoByClientIdAndFeature(id);
     }
 }

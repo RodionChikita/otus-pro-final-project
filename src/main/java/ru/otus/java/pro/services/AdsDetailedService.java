@@ -3,6 +3,7 @@ package ru.otus.java.pro.services;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import ru.otus.java.pro.dtos.AdDto;
+import ru.otus.java.pro.dtos.CreateOrUpdateAdDtoRq;
 import ru.otus.java.pro.entities.CategoryEnum;
 
 import java.util.ArrayList;
@@ -58,6 +59,15 @@ public class AdsDetailedService {
 
     public List<Optional<? extends AdDto>> findAllByClientIdAndActuality(@PathVariable Long id, boolean isActual) {
         List<AdDto> adDtoList = adsService.findAllByClientIdAndActuality(id, isActual);
+        List<Optional<? extends AdDto>> adDetailedDtoList = new ArrayList<>();
+        for (AdDto adDto : adDtoList) {
+            adDetailedDtoList.add(findById(adDto.getId()));
+        }
+        return adDetailedDtoList;
+    }
+
+    public List<Optional<? extends AdDto>> findAllByClientIdAndFeature(Long id) {
+        List<AdDto> adDtoList = adsService.findAllByClientIdAndFeature(id);
         List<Optional<? extends AdDto>> adDetailedDtoList = new ArrayList<>();
         for (AdDto adDto : adDtoList) {
             adDetailedDtoList.add(findById(adDto.getId()));

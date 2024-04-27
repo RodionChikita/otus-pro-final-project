@@ -3,6 +3,8 @@ package ru.otus.java.pro.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.otus.java.pro.dtos.AdDto;
+import ru.otus.java.pro.dtos.CreateOrUpdateAdDtoRq;
+import ru.otus.java.pro.dtos.CreateOrUpdateRealEstateDtoRq;
 import ru.otus.java.pro.dtos.SimplestPageDto;
 import ru.otus.java.pro.exceptions.ResourceNotFoundException;
 import ru.otus.java.pro.services.AdsDetailedService;
@@ -48,4 +50,7 @@ public class AdsController {
     public List<Optional<? extends AdDto>> findAllDetailedAds() {
         return adsDetailedService.findAll();
     }
+
+    @GetMapping("{adId}/featured")
+    public void addFeaturedAd(@RequestParam Long clientId, @PathVariable UUID adId){adsService.addFeaturedAdd(clientId, adId);}
 }

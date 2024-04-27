@@ -1,5 +1,6 @@
 package ru.otus.java.pro.services;
 
+import com.github.f4b6a3.uuid.UuidCreator;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import ru.otus.java.pro.dtos.CreateOrUpdateShoesDtoRq;
@@ -25,7 +26,7 @@ public class ShoesService {
     public void createNewShoes(CreateOrUpdateShoesDtoRq createOrUpdateShoesDtoRq
     ) {
         Shoes newShoes = Shoes.builder()
-                .adId(UUID.randomUUID())
+                .adId(UuidCreator.getTimeBased())
                 .title(createOrUpdateShoesDtoRq.getTitle())
                 .city(createOrUpdateShoesDtoRq.getCity())
                 .price(createOrUpdateShoesDtoRq.getPrice())

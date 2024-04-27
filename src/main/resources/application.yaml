@@ -5,9 +5,9 @@ server:
     context-path: /app
 springdoc:
 
-  api-docs:
-    path: /docs
+  api-docs:h: /docs
 
+    pat
   swagger-ui:
     filter: true
     tryItOutEnabled: true

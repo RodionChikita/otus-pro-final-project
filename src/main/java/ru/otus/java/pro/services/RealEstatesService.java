@@ -7,6 +7,7 @@ import ru.otus.java.pro.dtos.CreateOrUpdateRealEstateDtoRq;
 import ru.otus.java.pro.dtos.RealEstateDto;
 import ru.otus.java.pro.entities.RealEstate;
 import ru.otus.java.pro.repositories.RealEstatesRepository;
+import com.github.f4b6a3.uuid.UuidCreator;
 
 import java.util.Date;
 import java.util.List;
@@ -30,7 +31,7 @@ public class RealEstatesService {
                 .realEstateType(createOrUpdateRealEstateDtoRq.getRealEstateType())
                 .numberOfRooms(createOrUpdateRealEstateDtoRq.getNumberOfRooms())
                 .floor(createOrUpdateRealEstateDtoRq.getFloor())
-                .adId(UUID.randomUUID())
+                .adId(UuidCreator.getTimeBased())
                 .title(createOrUpdateRealEstateDtoRq.getTitle())
                 .city(createOrUpdateRealEstateDtoRq.getCity())
                 .price(createOrUpdateRealEstateDtoRq.getPrice())
